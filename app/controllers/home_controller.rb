@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   skip_before_filter :verify_authenticity_token
-  
+
   def index
     @gem_name = params[:text]
   end
@@ -12,6 +12,9 @@ class HomeController < ApplicationController
       @project_uri = gem_info["project_uri"]
       @homepage = gem_info["homepage_uri"]
       @docs = gem_info["documentation_uri"]
+    else
+      return try_again
     end
+
   end
 end
