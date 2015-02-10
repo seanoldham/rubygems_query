@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   match '/search', to: 'home#search', via: 'post', as: 'search'
-
+  match '/up', to: 'home#up', via: 'get', as: 'up'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
