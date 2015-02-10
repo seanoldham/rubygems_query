@@ -6,15 +6,15 @@ class HomeController < ApplicationController
   end
 
   def search
-    try_again = "Gem does not exist. Try again."
     gem_info = Gems.info @gem_name
     if @gem_name == gem_info["name"]
       @project_uri = gem_info["project_uri"]
       @homepage = gem_info["homepage_uri"]
       @docs = gem_info["documentation_uri"]
     else
-      return try_again
+      @project_uri = "None found"
+      @homepage = ""
+      @docs = ""
     end
-
   end
 end
