@@ -6,9 +6,9 @@ class HomeController < ApplicationController
   end
 
   def search
+    @gem_name = params[:text]
     gem_info = Gems.info @gem_name
-    @text = "None found"
-    if @gem_name == gem_info["name"]
+    if @gem_name.present?
       @text = gem_info["project_uri"]
       #@project_uri = gem_info["project_uri"]
       #@homepage = gem_info["homepage_uri"]
