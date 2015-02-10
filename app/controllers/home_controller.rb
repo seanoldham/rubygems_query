@@ -7,14 +7,18 @@ class HomeController < ApplicationController
 
   def search
     gem_info = Gems.info @gem_name
+    @text = "None found"
     if @gem_name == gem_info["name"]
-      @project_uri = gem_info["project_uri"]
-      @homepage = gem_info["homepage_uri"]
-      @docs = gem_info["documentation_uri"]
+      @text = gem_info["project_uri"]
+      #@project_uri = gem_info["project_uri"]
+      #@homepage = gem_info["homepage_uri"]
+      #@docs = gem_info["documentation_uri"]
+      if !@text.present?
+        @text = "gem not found"
+      end
+      return render json: @text
     else
-      @project_uri = "None found"
-      @homepage = ""
-      @docs = ""
+      return render json: "no gems found"
     end
   end
 end
