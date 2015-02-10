@@ -8,13 +8,15 @@ class HomeController < ApplicationController
   def search
     gem_info = Gems.info @gem_name
     if @gem_name == gem_info["name"]
-      @project_uri = gem_info["project_uri"]
-      @homepage = gem_info["homepage_uri"]
-      @docs = gem_info["documentation_uri"]
+      # @project_uri = gem_info["project_uri"]
+      # @homepage = gem_info["homepage_uri"]
+      # @docs = gem_info["documentation_uri"]
+      render json: gem_info["name"]
     else
-      @project_uri = "None found"
-      @homepage = ""
-      @docs = ""
+      # @project_uri = "None found"
+      # @homepage = ""
+      # @docs = ""
+      render :test_two
     end
   end
 end
