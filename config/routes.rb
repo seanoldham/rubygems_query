@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  root 'home#index'
   match '/search', to: 'home#search', via: 'post', as: 'search'
 
   # The priority is based upon order of creation: first created -> highest priority.

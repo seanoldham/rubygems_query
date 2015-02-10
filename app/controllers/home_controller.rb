@@ -1,10 +1,6 @@
 class HomeController < ApplicationController
   skip_before_filter :verify_authenticity_token
 
-  def index
-    @gem_name = params[:text]
-  end
-
   def search
     gem_name = params[:text]
     gem_info = Gems.info gem_name
