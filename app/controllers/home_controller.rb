@@ -10,14 +10,14 @@ class HomeController < ApplicationController
     gem_info = Gems.info gem_name
     if gem_name.present?
       text = gem_info["project_uri"]
-      #@project_uri = gem_info["project_uri"]
-      #@homepage = gem_info["homepage_uri"]
-      #@docs = gem_info["documentation_uri"]
       if !text.present?
         return render json: "gem not found"
       else
-        project_uri = "<#{gem_info["project_uri"]}>"
-        return render json: project_uri
+        project_uri = "Project link: <#{text}>"
+        homepage = "Homepage: <#{gem_info["homepage_uri"]}>"
+        docs = "Docs: <#{gem_info["documentation_uri"]}>"
+        text = project_uri + "\n" + homepage + "\n" + docs
+        return render json: text
       end
     else
       return render json: "Please enter a gem name"
