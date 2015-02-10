@@ -16,7 +16,7 @@ class HomeController < ApplicationController
         project_uri = "Project link: <#{text}>"
         homepage = "Homepage: <#{gem_info["homepage_uri"]}>"
         docs = "Docs: <#{gem_info["documentation_uri"]}>"
-        text = project_uri + "\n" + homepage + "\n" + docs
+        text = "You searched for: #{gem_name} \n" + project_uri + "\n" + homepage + "\n" + docs
         return render json: text
       end
     else
